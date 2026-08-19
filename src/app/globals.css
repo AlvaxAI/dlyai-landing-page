@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   DLY AI — Design tokens
+   Source of truth: docs/web-brand-brief.md (derived from Brand/*.md)
+   Dark-first. Near-mono neutrals + exactly one signature accent.
+   ========================================================================== */
+
+@theme {
+  /* Core palette — locked */
+  --color-ink: #0b0f17; /* Deep Ink — primary canvas */
+  --color-surface: #151b26; /* Slate 900 — raised surfaces */
+  --color-yield: #c7f94b; /* Yield lime — THE one accent, 5–10% max */
+  --color-signal: #f5f7fa; /* Signal White — body + logo */
+  --color-muted: #8a94a6; /* Slate 400 — captions, labels */
+
+  /* Hairlines — the grid is the aesthetic */
+  --color-line: rgb(245 247 250 / 0.12);
+  --color-line-soft: rgb(245 247 250 / 0.07);
+  --color-line-strong: rgb(245 247 250 / 0.24);
+
+  /* Type — three families, per brand-guidelines.md */
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Motion — restrained */
+  --ease-out-brand: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ------------------------------------------------------------------
+     shadcn/ui token layer, mapped onto the DLY palette so any component
+     pulled from a registry inherits the brand instead of neutral greys.
+     ------------------------------------------------------------------ */
+  --color-background: var(--color-ink);
+  --color-foreground: var(--color-signal);
+  --color-primary: var(--color-yield);
+  --color-primary-foreground: var(--color-ink);
+  --color-secondary: var(--color-surface);
+  --color-secondary-foreground: var(--color-signal);
+  --color-accent: rgb(245 247 250 / 0.08);
+  --color-accent-foreground: var(--color-signal);
+  --color-destructive: #ff5a2c;
+  --color-destructive-foreground: var(--color-signal);
+  --color-input: var(--color-line-strong);
+  --color-border: var(--color-line);
+  --color-ring: var(--color-yield);
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-signal);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* The native pointer is only hidden once CrosshairCursor has mounted and
+     confirmed a fine pointer — a JS failure can never strand the page without
+     a cursor. Text carets stay native so inputs remain usable. */
+  :root[data-cursor="crosshair"],
+  :root[data-cursor="crosshair"] a,
+  :root[data-cursor="crosshair"] button,
+  :root[data-cursor="crosshair"] [role="button"] {
+    cursor: none;
+  }
+
+  ::selection {
+    background-color: var(--color-yield);
+    color: var(--color-ink);
+  }
+
+  /* Visible focus is non-negotiable — never remove the ring. */
+  :focus-visible {
+    outline: 2px solid var(--color-yield);
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Components
+   -------------------------------------------------------------------------- */
+
+@layer components {
+  /* Display headline: tight tracking, sentence case, short lines.
+     Brutalist scale — bigger and heavier than a normal marketing page,
+     because the type IS the layout here. */
+  .h-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.028em;
+    line-height: 1.02;
+  }
+
+  .h-section {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.022em;
+    line-height: 1.04;
+    font-size: clamp(2.25rem, 1.1rem + 4.9vw, 5.25rem);
+  }
+
+  /* Mono kicker — the geeky signature. Used deliberately, not everywhere. */
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .mono-note {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+  }
+
+  /* Hard-edged evidence panel. No rounding, no glow, no gradient. */
+  .panel {
+    border: 1px solid var(--color-line);
+    background-color: color-mix(in srgb, var(--color-surface) 55%, transparent);
+  }
+
+  /* Corner ticks — registration marks on a plate. Brutalist detail that costs
+     no colour and reads as measured rather than decorated. */
+  .ticked {
+    position: relative;
+  }
+
+  .ticked::before,
+  .ticked::after {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-color: var(--color-line-strong);
+    pointer-events: none;
+  }
+
+  .ticked::before {
+    top: -1px;
+    left: -1px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .ticked::after {
+    right: -1px;
+    bottom: -1px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Motion
+   Entrance animation is owned by framer-motion (see components/reveal.tsx and
+   components/motion.tsx). `.reveal` / `.reveal-group` stay as marker classes so
+   the <noscript> rule in the layout can force everything visible when JS never
+   runs — the markup is always in the HTML, only its opacity is scripted.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal-group,
+  .reveal-static {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
