@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 内部文档 —— 禁止提交到本仓库（本仓库是 public）
+# docs/web-brand-brief.md 含真实客户名（须书面授权方可公开）
+docs/
