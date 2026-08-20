@@ -19,7 +19,7 @@ import type { SiteContent } from "./types";
  * technical discovery → build. Swap this one constant for the Calendly link
  * and every CTA on the page follows.
  */
-export const BOOKING_URL = "mailto:contact@dlyai.com?subject=Free%20AI%20deployment%20assessment";
+export const BOOKING_URL = "https://calendly.com/contact-dlyai/30min";
 
 export const en: SiteContent = {
   meta: {
@@ -155,7 +155,7 @@ export const en: SiteContent = {
       { value: "1.8 mo", label: "average delivery cycle" },
     ],
     network: { value: "100+", label: "senior engineers · expert network" },
-    recent: "H1 2025: 10+ mid-to-large engagements",
+    recent: "H1 2026: 10+ mid-to-large engagements",
     spectrum: [
       "Consumer products",
       "Fintech",
@@ -185,8 +185,7 @@ export const en: SiteContent = {
         metrics: [],
         note: "No unverified performance metric shown.",
         images: [
-          { src: "/cases/enterprise-research-home.png", alt: "Enterprise AI research platform home dashboard" },
-          { src: "/cases/enterprise-research-workspace.png", alt: "Enterprise AI research analysis workspace with report generation" },
+          { src: "/cases/enterprise-research-workspace.webp", alt: "Enterprise AI research analysis workspace with report generation" },
         ],
         flow: ["Data", "Analysis", "Reports"],
       },
@@ -201,7 +200,7 @@ export const en: SiteContent = {
           { value: "<4 hrs", label: "to first booking" },
           { value: "4.9", label: "star average · 500+ reviews" },
         ],
-        images: [{ src: "/cases/legal-booking.png", alt: "AI legal consultation booking product on mobile" }],
+        images: [{ src: "/cases/legal-booking.webp", alt: "AI legal consultation booking product on mobile" }],
       },
       {
         sector: "Travel tech",
@@ -214,7 +213,7 @@ export const en: SiteContent = {
           { value: "−76%", label: "support tickets" },
           { value: "58%", label: "repeat purchase" },
         ],
-        images: [{ src: "/cases/esim-travel.png", alt: "eSIM purchase and management product on mobile" }],
+        images: [{ src: "/cases/esim-travel.webp", alt: "eSIM purchase and management product on mobile" }],
       },
       {
         sector: "Engineering manufacturer",
@@ -249,37 +248,37 @@ export const en: SiteContent = {
         title: "AI health companion",
         metric: "64% 7-day retention",
         detail: "1.9× daily check-ins · zero missed safety escalations in a 90-day audit",
-        image: { src: "/cases/health-companion.png", alt: "AI health companion app" },
+        image: { src: "/cases/health-companion.webp", alt: "AI health companion app" },
       },
       {
         title: "AI fitness coach",
         metric: "72% workout completion",
         detail: "form-related injury reports down 58% · 30-day renewal up 22%",
-        image: { src: "/cases/fitness-coach.png", alt: "Online AI fitness coach app" },
+        image: { src: "/cases/fitness-coach.webp", alt: "Online AI fitness coach app" },
       },
       {
         title: "AI matching",
         metric: "2.7× match-to-conversation",
         detail: "first-week churn down 34% · first message under 2 minutes",
-        image: { src: "/cases/social-matching.png", alt: "AI social matching app" },
+        image: { src: "/cases/social-matching.webp", alt: "AI social matching app" },
       },
       {
         title: "Privacy-first people map",
         metric: "3× in-person meetups",
         detail: "zero location-privacy complaints · 30-day retention up 19 points",
-        image: { src: "/cases/people-map.png", alt: "Privacy-first people map app" },
+        image: { src: "/cases/people-map.webp", alt: "Privacy-first people map app" },
       },
       {
         title: "AI personal shopper",
         metric: "+38% conversion",
         detail: "size-related returns down 27% · average order value up 15%",
-        image: { src: "/cases/commerce-shopper.png", alt: "AI personal shopper commerce app" },
+        image: { src: "/cases/commerce-shopper.webp", alt: "AI personal shopper commerce app" },
       },
       {
         title: "AI wallet safety layer",
         metric: "−91% mis-sent transactions",
         detail: "swap volume up 2.4× · onboarding under 3 minutes",
-        image: { src: "/cases/crypto-wallet.png", alt: "AI crypto wallet app" },
+        image: { src: "/cases/crypto-wallet.webp", alt: "AI crypto wallet app" },
       },
     ],
   },
@@ -340,7 +339,7 @@ export const en: SiteContent = {
     ],
     cta: { label: "Book a free assessment", href: BOOKING_URL },
     details: [
-      { label: "WhatsApp", value: "Message us on WhatsApp", href: "https://wa.me/447410947777", icon: "whatsapp" },
+      { label: "WhatsApp", value: "Message us on WhatsApp", href: "https://wa.me/16505191390", icon: "whatsapp" },
       { label: "Email", value: "Email contact@dlyai.com", href: "mailto:contact@dlyai.com", icon: "email" },
       { label: "UK", value: "London" },
       { label: "US", value: "San Francisco" },

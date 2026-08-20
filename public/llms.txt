@@ -1,0 +1,38 @@
+# DLY AI
+
+> DLY AI is a forward-deployed AI engineering team. Senior engineers embed with client teams to take complex AI from idea to production.
+
+## What DLY AI does
+
+- Designs, builds and deploys production AI systems.
+- Embeds senior AI engineers inside client teams and existing technology stacks.
+- Works from discovery through deployment, measurement and iteration.
+- Handles AI product, enterprise-system and semiconductor-grade engineering problems.
+
+## Who DLY AI works with
+
+DLY AI works with organisations in the UK and US, including consumer products, fintech, healthcare, industrial companies, enterprise SaaS, space systems and semiconductor engineering.
+
+## Evidence
+
+- 30+ production systems shipped.
+- 93% repeat engagement.
+- 20+ domains served.
+- Average delivery cycle: 1.8 months.
+
+## Example work
+
+- Enterprise AI research workspace connecting sources, analysis and reporting.
+- AI legal intake, lawyer ranking and appointment booking.
+- eSIM recommendation, automated activation and live usage management.
+- Agent-executable engineering workflows for drawing recognition, validation and process routing.
+
+## Contact
+
+- Website: https://dlyai.com/
+- Email: contact@dlyai.com
+- WhatsApp: https://wa.me/16505191390
+
+## Primary source
+
+- https://dlyai.com/ — company overview, services, delivery model, proof and anonymised case studies.

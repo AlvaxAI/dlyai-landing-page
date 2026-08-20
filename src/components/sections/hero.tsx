@@ -112,7 +112,9 @@ export function Hero({ hero }: { hero: SiteContent["hero"] }) {
             {...fade(0.68)}
           >
             <Magnetic strength={0.22}>
-              <YieldButton href={hero.primaryCta.href}>{hero.primaryCta.label}</YieldButton>
+              <YieldButton href={hero.primaryCta.href} target="_blank">
+                {hero.primaryCta.label}
+              </YieldButton>
             </Magnetic>
             <Magnetic strength={0.16}>
               <GhostButton href={hero.secondaryCta.href}>{hero.secondaryCta.label}</GhostButton>

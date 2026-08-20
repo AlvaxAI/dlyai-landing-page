@@ -24,6 +24,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const content = getContent();
+const socialImage = {
+  url: "/brand/dly-og.png",
+  width: 1200,
+  height: 630,
+  alt: "DLY AI — The AI problem you can't hire for.",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://dlyai.com"),
@@ -32,15 +38,18 @@ export const metadata: Metadata = {
   applicationName: content.brand.name,
   openGraph: {
     type: "website",
+    url: "https://dlyai.com/",
     siteName: content.brand.name,
     title: content.meta.title,
     description: content.meta.description,
     locale: "en_GB",
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
     title: content.meta.title,
     description: content.meta.description,
+    images: [socialImage],
   },
   alternates: { canonical: "/" },
   icons: { icon: "/brand/dly-logo-white.png" },
@@ -58,6 +67,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
+        <meta name="msvalidate.01" content="9C989EE0976440C123CE20E457686D2F" />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "y5cnv0k7ka");`,
+          }}
+        />
         {/*
           Without JS no animation ever runs, so framer-motion's server-rendered
           `initial` styles would freeze the page at opacity:0 / clipped.
