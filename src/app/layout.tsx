@@ -25,6 +25,13 @@ const jetbrainsMono = JetBrains_Mono({
 
 const content = getContent();
 
+const ogImage = {
+  url: "/brand/dly-og.png",
+  width: 1200,
+  height: 630,
+  alt: "DLY AI — The AI problem you can't hire for.",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://dlyai.com"),
   title: content.meta.title,
@@ -36,12 +43,16 @@ export const metadata: Metadata = {
     title: content.meta.title,
     description: content.meta.description,
     locale: "en_GB",
+    url: "/",
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: content.meta.title,
     description: content.meta.description,
+    images: [ogImage],
   },
+  verification: { other: { "msvalidate.01": "9C989EE0976440C123CE20E457686D2F" } },
   alternates: { canonical: "/" },
   icons: { icon: "/brand/dly-logo-white.png" },
 };
