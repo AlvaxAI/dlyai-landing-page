@@ -82,14 +82,18 @@ export function YieldButton({
   href,
   children,
   className = "",
+  target,
 }: {
   href: string;
   children: ReactNode;
   className?: string;
+  target?: "_blank";
 }) {
   return (
     <a
       href={href}
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
       className={`group inline-flex cursor-pointer items-center justify-between gap-4 bg-yield px-6 py-3.5 text-left font-display text-sm font-medium text-ink transition-[background-color,transform] duration-200 hover:-translate-y-0.5 hover:bg-signal focus-visible:bg-signal ${className}`}
     >
       {children}

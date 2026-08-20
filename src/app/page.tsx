@@ -17,9 +17,46 @@ import { SiteFooter } from "@/components/sections/site-footer";
 
 export default function Home() {
   const c = getContent();
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://dlyai.com/#organization",
+        name: c.brand.name,
+        url: "https://dlyai.com/",
+        logo: "https://dlyai.com/brand/dly-logo-lockup.svg",
+        description: c.meta.description,
+        email: "contact@dlyai.com",
+        areaServed: ["United Kingdom", "United States"],
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://dlyai.com/#service",
+        name: "DLY AI — Forward-deployed AI engineering",
+        url: "https://dlyai.com/",
+        description: c.meta.description,
+        provider: { "@id": "https://dlyai.com/#organization" },
+        serviceType: ["Forward-deployed AI engineering", "AI product and system development"],
+        areaServed: ["United Kingdom", "United States"],
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://dlyai.com/#website",
+        name: c.brand.name,
+        url: "https://dlyai.com/",
+        publisher: { "@id": "https://dlyai.com/#organization" },
+        inLanguage: c.meta.locale,
+      },
+    ],
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+      />
       <a
         href="#gap"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[90] focus:bg-yield focus:px-4 focus:py-2 focus:font-display focus:text-sm focus:text-ink"

@@ -1,14 +1,15 @@
 import Link from "next/link";
-import { Logo } from "@/components/primitives";
 import { NotFoundRedirect } from "@/components/not-found-redirect";
+import { Logo } from "@/components/primitives";
 
 export default function NotFound() {
   return (
     <main className="relative flex min-h-screen items-center overflow-hidden px-6 py-24 sm:px-10 lg:px-16">
       <div className="mx-auto w-full max-w-[1200px]">
         <Link href="/" aria-label="DLY AI homepage" className="inline-block">
-          <Logo />
+          <Logo className="h-7 w-auto" />
         </Link>
+
         <p className="kicker mt-24 text-yield">[404]</p>
         <h1 className="h-display mt-6 max-w-3xl text-[clamp(3rem,1.2rem+6vw,6.5rem)]">
           This route doesn&apos;t exist.

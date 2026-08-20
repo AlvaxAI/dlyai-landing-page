@@ -19,7 +19,7 @@ import type { SiteContent } from "./types";
  * technical discovery → build. Swap this one constant for the Calendly link
  * and every CTA on the page follows.
  */
-export const BOOKING_URL = "mailto:contact@dlyai.com?subject=Free%20AI%20deployment%20assessment";
+export const BOOKING_URL = "https://calendly.com/contact-dlyai/30min";
 
 export const en: SiteContent = {
   meta: {
@@ -339,7 +339,7 @@ export const en: SiteContent = {
     ],
     cta: { label: "Book a free assessment", href: BOOKING_URL },
     details: [
-      { label: "WhatsApp", value: "Message us on WhatsApp", href: "https://wa.me/447410947777", icon: "whatsapp" },
+      { label: "WhatsApp", value: "Message us on WhatsApp", href: "https://wa.me/16505191390", icon: "whatsapp" },
       { label: "Email", value: "Email contact@dlyai.com", href: "mailto:contact@dlyai.com", icon: "email" },
       { label: "UK", value: "London" },
       { label: "US", value: "San Francisco" },

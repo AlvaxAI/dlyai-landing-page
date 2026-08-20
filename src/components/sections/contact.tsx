@@ -40,6 +40,8 @@ export function Contact({ contact }: { contact: SiteContent["contact"] }) {
           <Magnetic strength={0.14}>
             <motion.a
               href={contact.cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group ticked flex cursor-pointer items-center justify-between gap-6 border border-yield p-8 transition-colors duration-300 hover:bg-yield sm:p-10"
               whileHover={reduced ? undefined : { scale: 1.015 }}
               transition={{ duration: 0.3, ease: EASE }}
@@ -55,41 +57,50 @@ export function Contact({ contact }: { contact: SiteContent["contact"] }) {
 
       <Reveal delay={220}>
         <dl className="mt-16 grid gap-px border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
-          {contact.details.map((detail) => (
-            <div key={detail.label} className="bg-ink px-5 py-7 transition-colors duration-300 hover:bg-surface/50">
-              <dt className="kicker">{detail.label}</dt>
-              <dd className="mt-3 text-sm leading-snug">
-                {detail.icon && detail.href ? (
-                  // Contact channels are actions, not strings to read: the
-                  // icon carries the tap, the label names the channel, and
-                  // aria-label is what assistive tech announces. 44x44 target.
-                  <a
-                    href={detail.href}
-                    {...(detail.icon === "whatsapp"
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                    aria-label={detail.value}
-                    className="-m-2.5 inline-flex h-11 w-11 cursor-pointer items-center justify-center text-signal transition-colors duration-200 hover:text-yield"
-                  >
-                    {detail.icon === "whatsapp" ? (
-                      <WhatsAppMark className="h-6 w-6" />
-                    ) : (
-                      <MailMark className="h-6 w-6" />
-                    )}
-                  </a>
-                ) : detail.href ? (
-                  <a
-                    href={detail.href}
-                    className="cursor-pointer underline decoration-line-strong underline-offset-4 transition-colors duration-200 hover:text-yield hover:decoration-yield"
-                  >
-                    {detail.value}
-                  </a>
-                ) : (
-                  detail.value
-                )}
-              </dd>
-            </div>
-          ))}
+          {contact.details.map((detail) => {
+            const content = (
+              <>
+                <dt className="kicker">{detail.label}</dt>
+                <dd className="mt-3 text-sm leading-snug">
+                  {detail.icon === "whatsapp" ? (
+                    <WhatsAppMark className="h-6 w-6" />
+                  ) : detail.icon === "email" ? (
+                    <MailMark className="h-6 w-6" />
+                  ) : detail.href ? (
+                    <a
+                      href={detail.href}
+                      className="cursor-pointer underline decoration-line-strong underline-offset-4 transition-colors duration-200 hover:text-yield hover:decoration-yield"
+                    >
+                      {detail.value}
+                    </a>
+                  ) : (
+                    detail.value
+                  )}
+                </dd>
+              </>
+            );
+
+            return detail.icon && detail.href ? (
+              <div
+                key={detail.label}
+                className="group relative bg-ink px-5 py-7 text-signal transition-colors duration-300 hover:bg-surface/50 hover:text-yield"
+              >
+                {content}
+                <a
+                  href={detail.href}
+                  {...(detail.icon === "whatsapp"
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  aria-label={detail.value}
+                  className="absolute inset-0 z-10 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-yield"
+                />
+              </div>
+            ) : (
+              <div key={detail.label} className="group bg-ink px-5 py-7 transition-colors duration-300 hover:bg-surface/50">
+                {content}
+              </div>
+            );
+          })}
         </dl>
       </Reveal>
     </Section>
