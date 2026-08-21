@@ -37,7 +37,7 @@ export default function Home() {
         url: "https://dlyai.com/",
         description: c.meta.description,
         provider: { "@id": "https://dlyai.com/#organization" },
-        serviceType: ["Forward-deployed AI engineering", "AI product and system development"],
+        serviceType: ["AI product development", "AI system development", "AI engineering and deployment"],
         areaServed: ["United Kingdom", "United States"],
       },
       {
