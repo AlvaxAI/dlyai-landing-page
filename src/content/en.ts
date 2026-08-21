@@ -23,9 +23,8 @@ export const BOOKING_URL = "https://calendly.com/contact-dlyai/30min";
 
 export const en: SiteContent = {
   meta: {
-    title: "DLY AI — Deploy. Learn. Yield.",
-    description:
-      "DLY AI is a forward-deployed AI engineering team. Senior engineers embed with your team and take complex AI from idea to production — across consumer products, enterprise systems and semiconductor-grade engineering.",
+    title: "DLY AI | We Build and Deploy AI for Your Business",
+    description: "DLY AI builds and deploys production-ready AI products and systems for your business.",
     locale: "en",
   },
 

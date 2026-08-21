@@ -28,7 +28,7 @@ const socialImage = {
   url: "/brand/dly-og.png",
   width: 1200,
   height: 630,
-  alt: "DLY AI — The AI problem you can't hire for.",
+  alt: "DLY AI — We build and deploy AI for your business.",
 };
 
 export const metadata: Metadata = {
